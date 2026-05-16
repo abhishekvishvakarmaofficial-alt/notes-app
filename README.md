@@ -284,5 +284,4 @@ curl -X DELETE http://localhost:5000/api/notes/<id>
 ## 📄 License
 
 MIT License — feel free to use this project as a starter template.
-#   n o t e s - a p p  
- 
+#
