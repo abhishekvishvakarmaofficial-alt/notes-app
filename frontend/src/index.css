@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-50 text-ink-900 transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-ink-950 text-ink-100;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-ink-100;
+  }
+  .dark ::-webkit-scrollbar-track {
+    @apply bg-ink-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-300 rounded-full;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-ink-600 rounded-full;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white dark:bg-ink-900 rounded-2xl border border-ink-100 dark:border-ink-800 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-ink-900 dark:bg-amber-500 text-white dark:text-ink-950 font-medium px-5 py-2.5 rounded-xl hover:bg-ink-700 dark:hover:bg-amber-400 transition-all duration-200 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-ink-100 dark:bg-ink-800 text-ink-800 dark:text-ink-200 font-medium px-5 py-2.5 rounded-xl hover:bg-ink-200 dark:hover:bg-ink-700 transition-all duration-200 active:scale-95;
+  }
+
+  .btn-danger {
+    @apply bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 font-medium px-5 py-2.5 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/40 transition-all duration-200 active:scale-95;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 text-ink-900 dark:text-ink-100 placeholder-ink-400 dark:placeholder-ink-600 focus:outline-none focus:ring-2 focus:ring-ink-400 dark:focus:ring-amber-500 transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-ink-600 dark:text-ink-400 mb-1.5;
+  }
+}
