@@ -9,7 +9,7 @@ RUN npm ci
 COPY . .
 
 # Set API URL for production build (proxied via nginx)
-ENV REACT_APP_API_URL=http://localhost:5000/api
+ENV REACT_APP_API_URL=http://98.92.164.169:5000/api
 
 RUN npm run build
 
