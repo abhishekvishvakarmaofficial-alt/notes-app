@@ -4,19 +4,22 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci
+
+# Install dependencies
+RUN npm install
 
 COPY . .
 
-# Set API URL for production build (proxied via nginx)
+# Set API URL for production build
 ENV REACT_APP_API_URL=http://98.92.164.169:5000/api
 
+# Build React app
 RUN npm run build
 
 # ── Stage 2: Serve with Nginx ─────────────────────────────────────────────────
 FROM nginx:1.27-alpine
 
-# Copy built assets
+# Copy build files
 COPY --from=builder /app/build /usr/share/nginx/html
 
 # Copy nginx config
